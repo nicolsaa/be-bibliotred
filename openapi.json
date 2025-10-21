@@ -1,0 +1,1787 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Librería API",
+        "description": "Documentación de la API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/resenas/{id}": {
+            "get": {
+                "tags": [
+                    "resena-_libro-controller"
+                ],
+                "operationId": "getResena",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Resena_libro"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "resena-_libro-controller"
+                ],
+                "operationId": "updateResena",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Resena_libro"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Resena_libro"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "resena-_libro-controller"
+                ],
+                "operationId": "deleteResena",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/regiones/{id}": {
+            "get": {
+                "tags": [
+                    "region-controller"
+                ],
+                "operationId": "getRegion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Region"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "region-controller"
+                ],
+                "operationId": "updateRegion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegionUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Region"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "region-controller"
+                ],
+                "operationId": "deleteRegion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/generos/{id}": {
+            "get": {
+                "tags": [
+                    "genero-controller"
+                ],
+                "operationId": "getGenero",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Genero"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "genero-controller"
+                ],
+                "operationId": "updateGenero",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneroUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Genero"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "genero-controller"
+                ],
+                "operationId": "deleteGenero",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/direcciones/{id}": {
+            "get": {
+                "tags": [
+                    "direccion-controller"
+                ],
+                "operationId": "getDireccionById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Direccion"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "direccion-controller"
+                ],
+                "operationId": "updateDireccion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DireccionUpdateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Direccion"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "direccion-controller"
+                ],
+                "operationId": "deleteDireccion",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/comunas/{id}": {
+            "get": {
+                "tags": [
+                    "comuna-controller"
+                ],
+                "operationId": "getComunaById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comuna"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "comuna-controller"
+                ],
+                "operationId": "updateComuna",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comuna"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comuna"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "comuna-controller"
+                ],
+                "operationId": "deleteComuna",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/autores/{id}": {
+            "get": {
+                "tags": [
+                    "autor-controller"
+                ],
+                "operationId": "getAutorById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Autor"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "autor-controller"
+                ],
+                "operationId": "updateAutor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Autor"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Autor"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "autor-controller"
+                ],
+                "operationId": "deleteAutor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/usuarios/registrar": {
+            "post": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "registrarUsuario",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UsuarioDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/resenas": {
+            "get": {
+                "tags": [
+                    "resena-_libro-controller"
+                ],
+                "operationId": "getAllResenas",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Resena_libro"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "resena-_libro-controller"
+                ],
+                "operationId": "createResena",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Resena_libro"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Resena_libro"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/regiones": {
+            "get": {
+                "tags": [
+                    "region-controller"
+                ],
+                "operationId": "getAllRegions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Region"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "region-controller"
+                ],
+                "operationId": "createRegion",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegionCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Region"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mensajeria/send": {
+            "post": {
+                "tags": [
+                    "mensajeria-controller"
+                ],
+                "operationId": "sendMessage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/MensajeCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Mensajeria"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/libros/scan-barcode": {
+            "post": {
+                "tags": [
+                    "libro-controller"
+                ],
+                "operationId": "scanBarcode",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ISBNRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LibroScanResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/libros/from-isbn": {
+            "post": {
+                "tags": [
+                    "libro-controller"
+                ],
+                "operationId": "createFromIsbn",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LibroFromIsbnRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Libro"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/libros/add-libro": {
+            "post": {
+                "tags": [
+                    "libro-controller"
+                ],
+                "operationId": "scanBarcode_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LibroFromIsbnRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Libro"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios": {
+            "post": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "crearSolicitud",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IntercambioCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Intercambio"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/{id}/rechazar": {
+            "post": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "rechazarIntercambio",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Intercambio"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/{id}/aceptar": {
+            "post": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "aceptarIntercambio",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Intercambio"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/generos": {
+            "get": {
+                "tags": [
+                    "genero-controller"
+                ],
+                "operationId": "getAllGeneros",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Genero"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "genero-controller"
+                ],
+                "operationId": "createGenero",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneroCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Genero"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/direcciones": {
+            "get": {
+                "tags": [
+                    "direccion-controller"
+                ],
+                "operationId": "getAllDirecciones",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Direccion"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "direccion-controller"
+                ],
+                "operationId": "createDireccion",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DireccionCreateRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Direccion"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comunas": {
+            "get": {
+                "tags": [
+                    "comuna-controller"
+                ],
+                "operationId": "getAllComunas",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Comuna"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "comuna-controller"
+                ],
+                "operationId": "createComuna",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Comuna"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Comuna"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/autores": {
+            "get": {
+                "tags": [
+                    "autor-controller"
+                ],
+                "operationId": "getAllAutores",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Autor"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "autor-controller"
+                ],
+                "operationId": "createAutor",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Autor"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Autor"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/usuarios": {
+            "get": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "listarUsuarios",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UsuarioDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mensajeria/user/{userId}": {
+            "get": {
+                "tags": [
+                    "mensajeria-controller"
+                ],
+                "operationId": "getMessagesForUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Mensajeria"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mensajeria/conversation/{userA}/{userB}": {
+            "get": {
+                "tags": [
+                    "mensajeria-controller"
+                ],
+                "operationId": "getConversation",
+                "parameters": [
+                    {
+                        "name": "userA",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "userB",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Mensajeria"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/solicitante/{id}": {
+            "get": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "porSolicitante",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Intercambio"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/libro/{id}": {
+            "get": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "historialPorLibro",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Intercambio"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/historial/{usuarioId1}/{usuarioId2}": {
+            "get": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "historialEntre",
+                "parameters": [
+                    {
+                        "name": "usuarioId1",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "usuarioId2",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Intercambio"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/intercambios/destinatario/{id}": {
+            "get": {
+                "tags": [
+                    "intercambio-controller"
+                ],
+                "operationId": "porDestinatario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Intercambio"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/usuarios/correo/{correo}": {
+            "delete": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "eliminarUsuarioPorCorreo",
+                "parameters": [
+                    {
+                        "name": "correo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Autor": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Genero": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Libro": {
+                "type": "object",
+                "properties": {
+                    "codigoBarra": {
+                        "type": "string"
+                    },
+                    "titulo": {
+                        "type": "string"
+                    },
+                    "descripcion": {
+                        "type": "string"
+                    },
+                    "anio_publicacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "portada_url": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "propietario": {
+                        "$ref": "#/components/schemas/Usuario"
+                    },
+                    "autores": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Autor"
+                        }
+                    },
+                    "generos": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Genero"
+                        }
+                    }
+                }
+            },
+            "Resena_libro": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "titulo_resena": {
+                        "type": "string"
+                    },
+                    "comentario": {
+                        "type": "string"
+                    },
+                    "calificacion": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fecha": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "libro": {
+                        "$ref": "#/components/schemas/Libro"
+                    },
+                    "usuario": {
+                        "$ref": "#/components/schemas/Usuario"
+                    }
+                }
+            },
+            "Usuario": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "apellido": {
+                        "type": "string"
+                    },
+                    "correo": {
+                        "type": "string"
+                    },
+                    "contrasena": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RegionUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "nombre_region": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Region": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "GeneroUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "nombre_genero": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DireccionUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "calle": {
+                        "type": "string"
+                    },
+                    "numero": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comunaId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "Comuna": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Direccion": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "calle": {
+                        "type": "string"
+                    },
+                    "numero": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comuna": {
+                        "$ref": "#/components/schemas/Comuna"
+                    }
+                }
+            },
+            "UsuarioDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "apellido": {
+                        "type": "string"
+                    },
+                    "correo": {
+                        "type": "string"
+                    },
+                    "contrasena": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RegionCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "nombre_region": {
+                        "type": "string"
+                    }
+                }
+            },
+            "MensajeCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "senderId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "recipientId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "contenido": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Mensajeria": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "senderId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "recipientId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "asunto": {
+                        "type": "string"
+                    },
+                    "destinatario": {
+                        "type": "string"
+                    },
+                    "cuerpo_mensaje": {
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "leido": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ISBNRequest": {
+                "type": "object",
+                "properties": {
+                    "isbn": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LibroScanResponse": {
+                "type": "object",
+                "properties": {
+                    "isbn": {
+                        "type": "string"
+                    },
+                    "titulo": {
+                        "type": "string"
+                    },
+                    "autores": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "generos": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "portadaUrl": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LibroFromIsbnRequest": {
+                "type": "object",
+                "properties": {
+                    "isbn": {
+                        "type": "string"
+                    }
+                }
+            },
+            "IntercambioCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "solicitanteId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "libroId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "destinatarioId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "Intercambio": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "libro": {
+                        "$ref": "#/components/schemas/Libro"
+                    },
+                    "solicitante": {
+                        "$ref": "#/components/schemas/Usuario"
+                    },
+                    "destinatario": {
+                        "$ref": "#/components/schemas/Usuario"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "SOLICITADO",
+                            "ACEPTADO",
+                            "RECHAZADO",
+                            "EN_PROGRESO",
+                            "FINALIZADO",
+                            "CANCELADO"
+                        ]
+                    },
+                    "fechaSolicitud": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaAceptacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaFinalizacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "GeneroCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "DireccionCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "calle": {
+                        "type": "string"
+                    },
+                    "numero": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comunaId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            }
+        }
+    }
+}

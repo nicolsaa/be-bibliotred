@@ -1,0 +1,662 @@
+{
+  "info": {
+    "name": "Librería API - OpenAPI curls",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Resenas",
+      "item": [
+        {
+          "name": "GET /resenas/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resenas/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /resenas/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resenas/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"titulo_resena\":\"Ejemplo\",\"comentario\":\"Comentario de ejemplo\",\"calificacion\":5,\"fecha\":\"2025-10-17\"}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /resenas/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/resenas/{{id}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Regiones",
+      "item": [
+        {
+          "name": "GET /regiones/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regiones/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /regiones/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regiones/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre_region\":\"Ejemplo\"}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /regiones/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regiones/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "GET /regiones",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regiones"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Generos",
+      "item": [
+        {
+          "name": "GET /generos/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /generos/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre_genero\":\"Ejemplo\"}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /generos/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "GET /generos",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Direcciones",
+      "item": [
+        {
+          "name": "GET /direcciones/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/direcciones/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /direcciones/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/direcciones/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"calle\":\"Calle Falsa\",\"numero\":123,\"comunaId\":10}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /direcciones/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/direcciones/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "GET /direcciones",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/direcciones"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comunas",
+      "item": [
+        {
+          "name": "GET /comunas/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/comunas/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /comunas/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/comunas/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\":\"Zona\"}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /comunas/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/comunas/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "GET /comunas",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/comunas"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Autores",
+      "item": [
+        {
+          "name": "GET /autores/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/autores/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "PUT /autores/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/autores/{{id}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\":\"Autor\"}"
+            }
+          }
+        },
+        {
+          "name": "DELETE /autores/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/autores/{{id}}"
+            }
+          }
+        },
+        {
+          "name": "GET /autores",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/autores"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "POST /usuarios/registrar",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/registrar"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\":\"Alejandro\",\"apellido\":\"Perez\",\"correo\":\"alejandro@example.com\",\"contrasena\":\"password\"}"
+            }
+          }
+        },
+        {
+          "name": "POST /usuarios/sin-direccion",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/sin-direccion"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre\":\"Ana\",\"apellido\":\"Lopez\",\"correo\":\"ana@example.com\",\"contrasena\":\"password\",\"direccion\":{\"calle\":\"Avenida Siempreviva\",\"numero\":456,\"nombreRegion\":\"Metropolitana\",\"nombreComuna\":\"Santiago\"}}"
+            }
+          }
+        },
+        {
+          "name": "GET /usuarios (list)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios"
+            }
+          }
+        },
+        {
+          "name": "DELETE /usuarios/{correo}",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/usuarios/{correo}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Libros",
+      "item": [
+        {
+          "name": "POST /libros/scan-barcode",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/libros/scan-barcode"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"isbn\":\"9781234567897\"}"
+            }
+          }
+        },
+        {
+          "name": "POST /libros/from-isbn",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/libros/from-isbn"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"isbn\":\"9781234567890\"}"
+            }
+          }
+        },
+        {
+          "name": "POST /libros/add-libro",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/libros/add-libro"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"isbn\":\"9781234567890\"}"
+            }
+          }
+        },
+        {
+          "name": "GET /libros",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/libros"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mensajería",
+      "item": [
+        {
+          "name": "POST /mensajeria/send",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mensajeria/send"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"senderId\":1,\"recipientId\":2,\"contenido\":\"Hola\"}"
+            }
+          }
+        },
+        {
+          "name": "GET /mensajeria/user/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mensajeria/user/5"
+            }
+          }
+        },
+        {
+          "name": "GET /mensajeria/conversation/{id1}/{id2}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mensajeria/conversation/1/2"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Intercambios",
+      "item": [
+        {
+          "name": "POST /intercambios",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"solicitanteId\":1,\"libroId\":2,\"destinatarioId\":3}"
+            }
+          }
+        },
+        {
+          "name": "POST /intercambios/10/rechazar",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/10/rechazar"
+            }
+          }
+        },
+        {
+          "name": "POST /intercambios/10/aceptar",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/10/aceptar"
+            }
+          }
+        },
+        {
+          "name": "GET /intercambios/solicitante/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/solicitante/42"
+            }
+          }
+        },
+        {
+          "name": "GET /intercambios/libro/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/libro/7"
+            }
+          }
+        },
+        {
+          "name": "GET /intercambios/historial/{id1}/{id2}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/historial/1/2"
+            }
+          }
+        },
+        {
+          "name": "GET /intercambios/destinatario/{id}",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intercambios/destinatario/99"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

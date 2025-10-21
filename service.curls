@@ -1,0 +1,79 @@
+curl -X GET "http://localhost:8080/resenas/123" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/resenas/123" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"titulo_resena\":\"Ejemplo\",\"comentario\":\"Comentario de ejemplo\",\"calificacion\":5,\"fecha\":\"2025-10-17\"}"
+
+curl -X DELETE "http://localhost:8080/resenas/123" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/regiones/456" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/regiones/456" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"nombre_region\":\"Ejemplo\"}"
+
+curl -X DELETE "http://localhost:8080/regiones/456" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/generos/789" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/generos/789" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"nombre_genero\":\"Ejemplo\"}"
+
+curl -X DELETE "http://localhost:8080/generos/789" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/direcciones/111" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/direcciones/111" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"calle\":\"Calle Falsa\",\"numero\":123,\"comunaId\":10}"
+
+curl -X DELETE "http://localhost:8080/direcciones/111" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/comunas/222" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/comunas/222" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"nombre\":\"Zona\"}"
+
+curl -X DELETE "http://localhost:8080/comunas/222" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/autores/333" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X PUT "http://localhost:8080/autores/333" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"nombre\":\"Autor\"}"
+
+curl -X DELETE "http://localhost:8080/autores/333" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X POST "http://localhost:8080/usuarios/registrar" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"nombre\":\"Alejandro\",\"apellido\":\"Perez\",\"correo\":\"alejandro@example.com\",\"contrasena\":\"password\"}"
+
+curl -X GET "http://localhost:8080/resenas" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/regiones" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X POST "http://localhost:8080/mensajeria/send" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"senderId\":1,\"recipientId\":2,\"contenido\":\"Hola\"}"
+
+curl -X POST "http://localhost:8080/libros/scan-barcode" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"isbn\":\"9781234567897\"}"
+
+curl -X POST "http://localhost:8080/libros/from-isbn" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"isbn\":\"9781234567890\"}"
+
+curl -X POST "http://localhost:8080/libros/add-libro" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"isbn\":\"9781234567890\"}"
+
+curl -X POST "http://localhost:8080/intercambios" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>" -d "{\"solicitanteId\":1,\"libroId\":2,\"destinatarioId\":3}"
+
+curl -X POST "http://localhost:8080/intercambios/10/rechazar" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X POST "http://localhost:8080/intercambios/10/aceptar" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/generos" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/direcciones" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/comunas" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/autores" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/usuarios" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/mensajeria/user/5" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/mensajeria/conversation/1/2" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/intercambios/solicitante/42" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/intercambios/libro/7" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/intercambios/historial/1/2" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X GET "http://localhost:8080/intercambios/destinatario/99" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
+
+curl -X DELETE "http://localhost:8080/usuarios/correo/prueba@example.com" -H "Accept: application/json" -H "Authorization: Bearer <TOKEN>"
