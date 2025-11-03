@@ -1,16 +1,14 @@
 package com.example.libreria_app.controller;
 
 import com.example.libreria_app.service.LibroService;
-import com.example.libreria_app.model.Autor;
+
 import com.example.libreria_app.model.Libro;
 import com.example.libreria_app.dto.ISBNRequest;
-import com.example.libreria_app.dto.LibroFromIsbnRequest;
-import com.example.libreria_app.dto.LibroScanResponse;
+import com.example.libreria_app.dto.BookData;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -23,28 +21,8 @@ public class LibroController {
     @Autowired
     private LibroService libroService;
 
-    @PostMapping("/scan-barcode")
-    public LibroScanResponse scanBarcode(@RequestBody ISBNRequest request, HttpSession session) {
-        String isbn = request.getIsbn();
-        Libro libro = libroService.scanBarcode(isbn, session);
-
-        LibroScanResponse response = new LibroScanResponse();
-        response.setIsbn(isbn);
-        response.setTitulo(libro.getTitulo());
-
-        List<String> autores = libro.getAutores().stream()
-                .map(Autor::getNombre)
-                .collect(Collectors.toList());
-        response.setAutores(autores);
-
-        List<String> generos = new java.util.ArrayList<>();
-        response.setGeneros(generos);
-
-        return response;
-    }
-
-    @PostMapping("/add-libro")
-    public ResponseEntity<Libro> scanBarcode(@RequestBody LibroFromIsbnRequest request, HttpSession session) {
+@PostMapping("/add-libro")
+public ResponseEntity<Libro> addLibro(@RequestBody ISBNRequest request, HttpSession session) {
         Libro libro = libroService.scanBarcode(request.getIsbn(), session);
         if (libro == null) {
             return ResponseEntity.badRequest().build();
@@ -52,8 +30,8 @@ public class LibroController {
         return ResponseEntity.ok(libro);
     }
 
-    @PostMapping("/from-isbn")
-    public ResponseEntity<Libro> createFromIsbn(@RequestBody LibroFromIsbnRequest request) {
+@PostMapping("/from-isbn")
+public ResponseEntity<Libro> createFromIsbn(@RequestBody ISBNRequest request) {
         Libro libro = libroService.createOrGetBookFromIsbn(request.getIsbn());
         if (libro == null) {
             return ResponseEntity.badRequest().build();
@@ -61,10 +39,12 @@ public class LibroController {
         return ResponseEntity.ok(libro);
     }
 
-    @GetMapping
-    public List<Libro> listAllLibros() {
-        return libroService.listAllLibros();
-    }
+@GetMapping
+public List<BookData> listAllLibros() {
+return libroService.listAllLibros().stream()
+        .map(com.example.libreria_app.mapper.LibroMapper::toBookData)
+        .collect(Collectors.toList());
+}
 
     @DeleteMapping("/{codigoBarra}")
     public ResponseEntity<Void> deleteLibro(@PathVariable("codigoBarra") String codigoBarra) {

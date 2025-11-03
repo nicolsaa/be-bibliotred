@@ -48,18 +48,7 @@ public class OpenLibraryApiService {
             }
             bookData.setAuthorNames(authorNames);
 
-            List<String> genreNames = new ArrayList<>();
-            if (bookNode.has("subjects")) {
-                for (JsonNode subjectNode : bookNode.get("subjects")) {
-                    if (subjectNode.has("name")) {
-                        genreNames.add(subjectNode.get("name").asText());
-                    } else if (subjectNode.isTextual()) {
-                        genreNames.add(subjectNode.asText());
-                    }
-                }
-            }
-            bookData.setGenreNames(genreNames);
- 
+
             // Populate cover URL from OpenLibrary if available
             if (bookNode.has("cover")) {
                 JsonNode coverNode = bookNode.get("cover");

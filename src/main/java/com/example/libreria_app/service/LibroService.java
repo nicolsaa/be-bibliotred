@@ -58,20 +58,6 @@ public class LibroService {
         return libroRepository.findAll();
     }
 
-    // Nuevo helper to fetch BookData by ISBN without persisting
-    public BookData fetchBookDataByIsbn(String isbn) {
-        if (isbn == null || isbn.trim().isEmpty()) {
-            throw new IllegalArgumentException("isbn invalido");
-        }
-        String trimmedIsbn = isbn.trim();
-        try {
-            return openLibraryApiService.fetchBookData(trimmedIsbn);
-        } catch (Exception e) {
-            logger.error("LIBRO SERVICE: error fetching BookData for ISBN={}", trimmedIsbn, e);
-            throw e;
-        }
-    }
-
     // Scope: simple scan by ISBN, using OpenLibrary data, reusing existing Authors/Generos
     public Libro scanBarcode(String isbn, HttpSession session) {
         System.out.println("LIBRO SERVICE: scanBarcode called for ISBN=" + isbn);
@@ -96,7 +82,7 @@ public class LibroService {
             data = cache.get(isbn);
             System.out.println("LIBRO SERVICE: cache HIT for ISBN " + isbn);
         } else {
-data = fetchBookDataByIsbn(isbn);
+            data = openLibraryApiService.fetchBookData(isbn);
             cache.put(isbn, data);
             cacheTime.put(isbn, now);
             System.out.println("LIBRO SERVICE: cache MISS for ISBN " + isbn + "; fetched from OpenLibrary");
@@ -126,17 +112,9 @@ data = fetchBookDataByIsbn(isbn);
 
         libro.setAutores(autores);
 
-System.out.println("LIBRO SERVICE: preparando guardar Libro ISBN=" + isbn +
+        System.out.println("LIBRO SERVICE: preparando guardar Libro ISBN=" + isbn +
                 " con " + autores.size() + " autores.");
 
-        if (data != null && data.getCoverUrl() != null && !data.getCoverUrl().isEmpty()) {
-            libro.setPortada_url(data.getCoverUrl());
-        } else {
-            libro.setPortada_url("https://covers.openlibrary.org/b/isbn/" + isbn + "-L.jpg");
-        }
-        if (data != null && data.getDescripcion() != null && !data.getDescripcion().isEmpty()) {
-            libro.setDescripcion(data.getDescripcion());
-        }
         libro = libroRepository.save(libro);
         System.out.println("LIBRO SERVICE: guardado Libro ISBN=" + isbn);
 
@@ -159,7 +137,7 @@ System.out.println("LIBRO SERVICE: preparando guardar Libro ISBN=" + isbn +
 
         BookData data = null;
         try {
-data = fetchBookDataByIsbn(isbn);
+            data = openLibraryApiService.fetchBookData(isbn);
         } catch (Exception e) {
             logger.error("LIBRO SERVICE: error fetching data for ISBN={}", isbn, e);
             throw e;
@@ -184,14 +162,6 @@ data = fetchBookDataByIsbn(isbn);
         }
 
         libro.setAutores(autores);
-        if (data != null && data.getCoverUrl() != null && !data.getCoverUrl().isEmpty()) {
-            libro.setPortada_url(data.getCoverUrl());
-        } else {
-            libro.setPortada_url("https://covers.openlibrary.org/b/isbn/" + isbn + "-L.jpg");
-        }
-        if (data != null && data.getDescripcion() != null && !data.getDescripcion().isEmpty()) {
-            libro.setDescripcion(data.getDescripcion());
-        }
         libro = libroRepository.save(libro);
         logger.info("LIBRO SERVICE: guardado Libro ISBN={}", isbn);
 
