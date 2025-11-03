@@ -59,6 +59,31 @@ public class OpenLibraryApiService {
                 }
             }
             bookData.setGenreNames(genreNames);
+ 
+            // Populate cover URL from OpenLibrary if available
+            if (bookNode.has("cover")) {
+                JsonNode coverNode = bookNode.get("cover");
+                if (coverNode.has("large")) {
+                    bookData.setCoverUrl(coverNode.get("large").asText());
+                } else if (coverNode.has("medium")) {
+                    bookData.setCoverUrl(coverNode.get("medium").asText());
+                } else if (coverNode.has("small")) {
+                    bookData.setCoverUrl(coverNode.get("small").asText());
+                }
+            }
+
+            // New: extract description
+            if (bookNode.has("description")) {
+                JsonNode descNode = bookNode.get("description");
+                if (descNode.isTextual()) {
+                    bookData.setDescripcion(descNode.asText());
+                } else if (descNode.isObject()) {
+                    JsonNode val = descNode.get("value");
+                    if (val != null && val.isTextual()) {
+                        bookData.setDescripcion(val.asText());
+                    }
+                }
+            }
 
             return bookData;
         } catch (Exception e) {

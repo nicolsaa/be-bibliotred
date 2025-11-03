@@ -6,6 +6,8 @@ public class BookData {
     private String title;
     private List<String> authorNames;
     private List<String> genreNames;
+    private String coverUrl;
+    private String descripcion;
 
     public BookData() {
     }
@@ -32,5 +34,21 @@ public class BookData {
 
     public void setGenreNames(List<String> genreNames) {
         this.genreNames = genreNames;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
