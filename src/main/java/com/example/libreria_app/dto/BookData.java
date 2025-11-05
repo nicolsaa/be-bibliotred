@@ -7,8 +7,17 @@ public class BookData {
     private List<String> authorNames;
     private String coverUrl;
     private String descripcion;
+    private String barCode;
 
     public BookData() {
+    }
+
+    public BookData(String title, List<String> authorNames, String coverUrl, String descripcion, String barCode) {
+        this.title = title;
+        this.authorNames = authorNames;
+        this.coverUrl = coverUrl;
+        this.descripcion = descripcion;
+        this.barCode = barCode;
     }
 
     public String getTitle() {
@@ -41,5 +50,13 @@ public class BookData {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getBarCode() {
+        return barCode;
+    }
+
+    public void setBarCode(String barCode) {
+        this.barCode = barCode;
     }
 }

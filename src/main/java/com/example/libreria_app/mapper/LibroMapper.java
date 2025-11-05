@@ -21,7 +21,7 @@ public class LibroMapper {
         if (libro.getAutores() != null) {
             List<String> authorNames = libro.getAutores().stream()
                     .map(Autor::getNombre)
-                    .collect(Collectors.toList());
+                    .toList();
             dto.setAuthorNames(authorNames);
         }
 

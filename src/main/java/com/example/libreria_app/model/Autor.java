@@ -16,8 +16,6 @@ public class Autor {
     @Column(name = "nombre", unique = true)
     private String nombre;
 
-
-
     public Autor() {
     }
 
