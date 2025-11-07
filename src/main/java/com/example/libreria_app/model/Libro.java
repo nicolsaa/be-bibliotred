@@ -7,6 +7,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.ManyToOne;
@@ -42,7 +43,7 @@ public class Libro implements Serializable {
     @JoinColumn(name = "propietario_id")
     private Usuario propietario;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "libro_autor",
         joinColumns = @JoinColumn(name = "libro_codigo_barra"),

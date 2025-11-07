@@ -26,9 +26,9 @@ public class UsuarioService {
             usuario.setContrasena(usuarioDTO.getContrasena());
 
             usuarioRepository.save(usuario);
-            return "Usuario registrado exitosamente.";
+            return "{\"message\": \"Usuario registrado exitosamente.\"}";
         } else {
-            return "El usuario con correo " + usuarioDTO.getCorreo() + " ya existe";
+            return "{\"message\": \"El usuario con correo " + usuarioDTO.getCorreo() + " ya existe\"}";
         }
     }
 

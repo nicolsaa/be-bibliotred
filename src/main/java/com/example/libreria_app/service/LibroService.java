@@ -1,5 +1,6 @@
 package com.example.libreria_app.service;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,6 +9,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +20,10 @@ import org.slf4j.LoggerFactory;
 import com.example.libreria_app.dto.BookData;
 import com.example.libreria_app.model.Autor;
 import com.example.libreria_app.model.Libro;
+import com.example.libreria_app.model.Usuario;
 import com.example.libreria_app.repository.AutorRepository;
 import com.example.libreria_app.repository.LibroRepository;
+import com.example.libreria_app.repository.UsuarioRepository;
 
 @Service
 public class LibroService {
@@ -34,6 +39,10 @@ public class LibroService {
 
     @Autowired
     private AutorRepository autorRepository;
+
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     // Nuevo helper para obtener o crear Autor por nombre
     private Autor obtenerOCrearAutorPorNombre(String nombre) {
@@ -59,7 +68,7 @@ public class LibroService {
     }
 
     // Scope: simple scan by ISBN, using OpenLibrary data, reusing existing Authors/Generos
-    public Libro scanBarcode(String isbn, HttpSession session) {
+    public Libro scanBarcode(String isbn, String correo, HttpSession session) {
         System.out.println("LIBRO SERVICE: scanBarcode called for ISBN=" + isbn);
         System.out.println("LIBRO SERVICE: inicio de procesamiento para ISBN=" + isbn);
 
@@ -101,9 +110,25 @@ public class LibroService {
         }
 
         Libro libro = libroRepository.findById(isbn).orElse(null);
-        if (libro == null) {
+
+        if (Objects.nonNull(libro) 
+            && !correo.equals(libro.getPropietario().getCorreo())) {
             libro = new Libro();
             libro.setCodigoBarra(isbn);
+            libro.setPortada_url(data.getCoverUrl());
+            Usuario usuario = usuarioRepository.findByCorreo(correo);
+            if (Objects.nonNull(usuario)) {
+                libro.setPropietario(usuario);
+            }
+            
+        } else {
+            libro = new Libro();
+            libro.setCodigoBarra(isbn);
+            libro.setPortada_url(data.getCoverUrl());
+            Usuario usuario = usuarioRepository.findByCorreo(correo);
+            if (Objects.nonNull(usuario)) {
+                libro.setPropietario(usuario);
+            }
         }
 
         if (data != null && data.getTitle() != null && !data.getTitle().isEmpty()) {
@@ -181,4 +206,22 @@ public class LibroService {
             throw new NoSuchElementException("Libro no encontrado con codigoBarra: " + id);
         }
     }
+
+    public List<BookData> getBookByEmail(String userEmail) {
+        return Optional.ofNullable(usuarioRepository.findByCorreo(userEmail))
+        .map(usuario -> 
+            Optional.ofNullable(libroRepository.findByPropietario(usuario))
+                .orElse(Collections.emptyList()) 
+                .stream()
+                .map(libro -> new BookData(libro.getTitulo(), 
+                    Optional.ofNullable(libro.getAutores())
+                        .orElse(Collections.emptySet())
+                        .stream().map(Autor::getNombre).toList(), 
+                    libro.getPortada_url(), 
+                    libro.getDescripcion(), 
+                    libro.getCodigoBarra()))
+                .toList() )
+        .orElse(Collections.emptyList());
+    }
+
 }
