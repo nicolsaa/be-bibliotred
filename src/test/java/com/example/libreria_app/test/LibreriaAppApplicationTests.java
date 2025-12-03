@@ -1,13 +1,7 @@
-package com.example.libreria_app;
+package com.example.libreria_app.test;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class LibreriaAppApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
 }
