@@ -5,7 +5,7 @@ import com.example.libreria_app.model.Autor;
 import com.example.libreria_app.dto.BookData;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class LibroMapper {
     public static BookData toBookData(Libro libro) {

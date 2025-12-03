@@ -38,7 +38,7 @@ public class DireccionController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @Hidden
+
     @PostMapping
     public Direccion createDireccion(@RequestBody DireccionCreateRequest request) {
         Direccion direccion = new Direccion();
