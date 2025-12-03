@@ -1,16 +1,17 @@
 package com.example.libreria_app.controller;
 
 import com.example.libreria_app.service.LibroService;
-import com.example.libreria_app.model.Autor;
+
 import com.example.libreria_app.model.Libro;
 import com.example.libreria_app.dto.ISBNRequest;
-import com.example.libreria_app.dto.LibroFromIsbnRequest;
-import com.example.libreria_app.dto.LibroScanResponse;
+import com.example.libreria_app.dto.BookData;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
@@ -23,29 +24,9 @@ public class LibroController {
     @Autowired
     private LibroService libroService;
 
-    @PostMapping("/scan-barcode")
-    public LibroScanResponse scanBarcode(@RequestBody ISBNRequest request, HttpSession session) {
-        String isbn = request.getIsbn();
-        Libro libro = libroService.scanBarcode(isbn, session);
-
-        LibroScanResponse response = new LibroScanResponse();
-        response.setIsbn(isbn);
-        response.setTitulo(libro.getTitulo());
-
-        List<String> autores = libro.getAutores().stream()
-                .map(Autor::getNombre)
-                .collect(Collectors.toList());
-        response.setAutores(autores);
-
-        List<String> generos = new java.util.ArrayList<>();
-        response.setGeneros(generos);
-
-        return response;
-    }
-
-    @PostMapping("/add-libro")
-    public ResponseEntity<Libro> scanBarcode(@RequestBody LibroFromIsbnRequest request, HttpSession session) {
-        Libro libro = libroService.scanBarcode(request.getIsbn(), session);
+@PostMapping("/add-libro")
+public ResponseEntity<Libro> addLibro(@RequestBody ISBNRequest request, HttpSession session) {
+        Libro libro = libroService.scanBarcode(request.getIsbn(),request.getCorreoPropietario(), session);
         if (libro == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -53,17 +34,19 @@ public class LibroController {
     }
 
     @PostMapping("/from-isbn")
-    public ResponseEntity<Libro> createFromIsbn(@RequestBody LibroFromIsbnRequest request) {
-        Libro libro = libroService.createOrGetBookFromIsbn(request.getIsbn());
-        if (libro == null) {
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<Libro> createFromIsbn(@RequestBody ISBNRequest request) {
+            Libro libro = libroService.createOrGetBookFromIsbn(request.getIsbn());
+            if (libro == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            return ResponseEntity.ok(libro);
         }
-        return ResponseEntity.ok(libro);
-    }
 
     @GetMapping
-    public List<Libro> listAllLibros() {
-        return libroService.listAllLibros();
+    public List<BookData> listAllLibros() {
+    return libroService.listAllLibros().stream()
+            .map(com.example.libreria_app.mapper.LibroMapper::toBookData)
+            .collect(Collectors.toList());
     }
 
     @DeleteMapping("/{codigoBarra}")
@@ -78,5 +61,14 @@ public class LibroController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Map<String, Object>> getBookByEmail(@PathVariable(value = "email") String userEmail) {
+        if (Objects.isNull(userEmail)) {
+            return ResponseEntity.badRequest().body(Map.of("error", "userEmail not present"));
+        }
+
+        return ResponseEntity.ok(Map.of("libros", this.libroService.getBookByEmail(userEmail)));
     }
 }
