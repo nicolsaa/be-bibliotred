@@ -1,4 +1,4 @@
-package com.example.libreria_app.client.response;
+package com.example.libreria_app.client.openlibrary.response;
 
 public class GenericKeyDto {
 
