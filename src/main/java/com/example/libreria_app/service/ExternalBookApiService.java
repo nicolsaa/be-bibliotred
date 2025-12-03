@@ -3,7 +3,6 @@ package com.example.libreria_app.service;
 import java.sql.Date;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.boot.web.client.RestTemplateBuilder;
